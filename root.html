@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script>
+              function getOneStudent(){
+    var sid = document.getElementById("s_id").value;
+    alert(sid);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        alert(this.responseText);
+      }
+    }
+    xhttp.open("GET", "https://pbauvkaijcqr4gwunumkkyfe7y0vqvnt.lambda-url.us-east-2.on.aws/?get_one="+sid);
+    xhttp.send();
+  }
+
+            function getAllStudent(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        alert(this.responseText);
+      }
+    }
+    xhttp.open("GET", "https://pbauvkaijcqr4gwunumkkyfe7y0vqvnt.lambda-url.us-east-2.on.aws/?get_all=true");
+    xhttp.send();
+  }
+function addOneStudent(){
+    var sid = document.getElementById("add_id").value;
+    var sname = document.getElementById("s_name").value;
+    alert(sid);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        alert(this.responseText);
+      }
+    }
+    xhttp.open("GET", "https://pbauvkaijcqr4gwunumkkyfe7y0vqvnt.lambda-url.us-east-2.on.aws/?add_one=true&student_id="+sid+"&name="+sname);
+    xhttp.send();
+  }
+  function removeStudent(){
+    var rid = document.getElementById("r_id").value;
+    alert(sid);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+      if(this.readyState == 4 && this.status == 200){
+        alert(this.responseText);
+      }
+    }
+    xhttp.open("GET", "https://pbauvkaijcqr4gwunumkkyfe7y0vqvnt.lambda-url.us-east-2.on.aws/?del_one="+rid);
+    xhttp.send();
+  }
+        </script>
+    </head>
+    <body>
+        <ul>
+            
+            <li>
+               <button onClick="getAllStudent();">Get All</button>
+            </li>
+            <p>Student Id:</p> <input id="s_id" type="text"/>
+            <li>
+                <button onClick="getOneStudent();">Get One</button>
+            </li>
+            <li>
+                <button onClick="addOneStudent();">Add One</button>
+            </li>
+            <p>Id of Added:</p><input id="add_id" type="text"/>
+            <p>Name of Added:</p><input id="s_name" type="text"/>
+            <li>
+                <button onClick="removeStudent();">Remove Student</button>
+            </li>
+            <p>Id of the requested removal</p><input id="r_id" type="text"/>
+        </ul>
+    </body>
+</html>
